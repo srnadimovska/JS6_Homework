@@ -10,6 +10,7 @@ const ageInput = document.getElementById("ageInput");
 const ageInputError = document.getElementById("ageInputError");
 
 const passwordInput = document.getElementById("passwordInput");
+const passwordInputError = document.getElementById("passwordInputError");
 
 const studentTable = document.getElementById("studentTable");
 
@@ -31,7 +32,7 @@ function validateEmail (email) {
 const email = "example@domain.com"
 
 if (validateEmail(email)) {
-    emailInputError.innerText = "email ok";
+    emailInputError.innerText = "";
 }
 else {
     emailInputError.innerText = "Invalid email";
@@ -48,6 +49,16 @@ ageInputError.innerText = "";
 return true;
 
 };
+
+function validatePassword() {
+    if (passwordInput.value.length < 4) {
+      passwordInputError.innerText = "Password must be longer than 4 letters";
+      return false;
+    }
+  
+    passwordInputError.innerText = "";
+    return true;
+  }
 
 function addStudent() {
   if (validateForm()) {
