@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMEWORK_6_JS_SrnaDimovska</title>
+</head>
+<body>
+<div class="form-container">
+    <label for="">Name</label>
+    <input id="nameInput" type="text" />
+    <span id="nameInputError" class="error-msg"></span>
+    <label for="">Lastname</label>
+    <input id="lastnameInput" type="text" />
+    <label for="">Email</label>
+    <input id="emailInput" type="email" />
+    <span id="emailInputError" class="error-msg"></span>
+    <label for="">Age</label>
+    <input id="ageInput" type="number" />
+    <span id="ageInputError" class="error-msg"></span>
+    <label for="">Password</label>
+    <input id="passwordInput" type="text" />
+
+    <button onclick="addStudent()">Add Student</button>
+
+</div>
+
+<table id="studentTable" border style="width: 100%">
+    <thead>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Password</th>
+      <th>Actions</th>
+      
+    </thead>
+    <tbody></tbody>
+  </table> 
+
+
+
+
+    <script src="/script.js"></script>
+</body>
+</html>
