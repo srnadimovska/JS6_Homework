@@ -24,41 +24,29 @@ function validateForm() {
   return true;
 }
 
-function validateEmail (email) {
-    const e = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return e.test(email);
+function validateEmail(email) {
+  const e = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return e.test(emailInput.value);
 }
-
-const email = "example@domain.com"
-
-if (validateEmail(email)) {
-    emailInputError.innerText = "";
-}
-else {
-    emailInputError.innerText = "Invalid email";
-}
-
-
 
 function validateAge() {
-if (ageInput.value < 18) {
+  if (ageInput.value < 18) {
     ageInputError.innerText = "Age must be over 18";
     return false;
+  }
+  ageInputError.innerText = "";
+  return true;
 }
-ageInputError.innerText = "";
-return true;
-
-};
 
 function validatePassword() {
-    if (passwordInput.value.length < 4) {
-      passwordInputError.innerText = "Password must be longer than 4 letters";
-      return false;
-    }
-  
-    passwordInputError.innerText = "";
-    return true;
+  if (passwordInput.value.length < 4) {
+    passwordInputError.innerText = "Password must be longer than 4 letters";
+    return false;
   }
+
+  passwordInputError.innerText = "";
+  return true;
+}
 
 function addStudent() {
   if (validateForm()) {
@@ -85,5 +73,26 @@ function addStudent() {
     });
 
     actionsCell.appendChild(deleteBtn);
+  }
+
+  if (validateAge()) {
+    
+    const ageCell = row.insertCell();
+    ageCell.innerText = ageInput.value;
+    
+  }
+
+  const email = "example@domain.com";
+
+  if (validateEmail(email)) {
+    emailInputError.innerText = "";
+  } else {
+    emailInputError.innerText = "Invalid email";
+  }
+
+  if (validatePassword()) {
+    const passwordCell = row.insertCell();
+    passwordCell.innerText = passwordInput.value;
+
   }
 }
