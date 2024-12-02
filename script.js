@@ -33,7 +33,7 @@ function validateForm() {
       else
       {
       ageInputError.innerText = "";
-      return true;
+      
     }
 
    if (passwordInput.value.length < 4) {
@@ -46,14 +46,17 @@ function validateForm() {
           
         }
 
-        const email = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (emailInput.value == email) {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(emailInput.value)) {
+          emailInputError.innerText = "Invalid email adress";
             
-        return email.test(emailInput.value);
+        return false;
         }
         else {
-            emailInputError.innerText = "Nevaliden email";
+            emailInputError.innerText = "";
         }
+
+        return true;
     }
 
 //   if (validateEmail(email)) {
