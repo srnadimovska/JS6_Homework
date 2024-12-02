@@ -24,7 +24,15 @@ function validateForm() {
     nameInputError.innerText = "";
   }
 
-  
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(emailInput.value)) {
+          emailInputError.innerText = "Invalid email adress";
+            
+        return false;
+        }
+        else {
+            emailInputError.innerText = "";
+        }
  
   if (ageInput.value < 18) {
         ageInputError.innerText = "Age must be over 18";
@@ -46,15 +54,7 @@ function validateForm() {
           
         }
 
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(emailInput.value)) {
-          emailInputError.innerText = "Invalid email adress";
-            
-        return false;
-        }
-        else {
-            emailInputError.innerText = "";
-        }
+        
 
         return true;
     }
